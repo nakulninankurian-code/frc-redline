@@ -1,0 +1,4 @@
+*.metadata.json
+.git
+node_modules/
+website/
