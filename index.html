@@ -268,6 +268,60 @@
       font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-top: 0.5rem;
     }
 
+    /* PILLARS (Faculty Mentors) */
+    .pillars-section {
+      padding: 15vh 7%;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: linear-gradient(to bottom, #000, #0a0a0c);
+    }
+    .pillars-header { text-align: center; max-width: 680px; margin: 0 auto 5rem; }
+    .pillars-header .section-title { margin-bottom: 1.5rem; }
+    .pillars-intro { color: var(--dim); font-size: 0.9rem; line-height: 1.85; }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .pillar-card {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.015);
+      overflow: hidden;
+      transition: border-color 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .pillar-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--red); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); z-index: 2;
+    }
+    .pillar-card:hover { border-color: rgba(255,255,255,0.18); transform: translateY(-6px); }
+    .pillar-card:hover::before { transform: scaleX(1); }
+    .pillar-img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background-size: cover;
+      background-position: center top;
+      filter: grayscale(100%) contrast(1.15) brightness(0.8);
+      transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .pillar-card:hover .pillar-img { filter: grayscale(0%) contrast(1.05) brightness(0.95); }
+    .pillar-info { padding: 2rem 1.8rem 2.4rem; }
+    .pillar-role { display: block; color: var(--red); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.8rem; }
+    .pillar-name { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 900; text-transform: uppercase; line-height: 0.95; margin-bottom: 0.4rem; }
+    .pillar-dept { display: block; color: var(--gold); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .pillar-desc { color: var(--dim); font-size: 0.82rem; line-height: 1.8; }
+
+    @media (max-width: 900px) {
+      .pillars-grid { grid-template-columns: 1fr; max-width: 460px; }
+    }
+    @media (max-width: 768px) {
+      .pillars-section { padding: 10vh 5%; }
+      .pillars-header { margin-bottom: 3rem; }
+      .pillar-name { font-size: 1.9rem; }
+    }
+
     /* TEAM */
     .team-section {
       padding: 15vh 0 0 0;
@@ -616,6 +670,7 @@
     <a href="#" class="nav-logo"><img src="assets/redline_logo.png" alt="FRC RedLine Logo"></a>
     <div class="nav-links">
       <a href="#countdown">Launch</a>
+      <a href="#pillars">Pillars</a>
       <a href="#team">Team</a>
       <a href="#join">Join Us</a>
       <a href="#sponsorship">Sponsors</a>
@@ -758,6 +813,55 @@
         <div class="time-box"><div class="time-num" id="mins">35</div><div class="time-label">Min</div></div>
         <div class="time-num" style="color:var(--red);">:</div>
         <div class="time-box"><div class="time-num" id="secs">09</div><div class="time-label">Sec</div></div>
+      </div>
+    </section>
+
+    <!-- PILLARS (Faculty Mentors) -->
+    <section id="pillars" class="pillars-section">
+      <div class="pillars-header">
+        <span class="eyebrow">The Pillars</span>
+        <h2 class="section-title">Those Who Held Us Up</h2>
+        <p class="pillars-intro">
+          Every machine needs a frame strong enough to carry it. Ours was built by the people who believed in a group of students before there was anything to believe in.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <article class="pillar-card">
+          <div class="pillar-img" style="background-image: url('assets/mentors/rejeesh.jpeg');"></div>
+          <div class="pillar-info">
+            <span class="pillar-role">Professor &amp; HoD</span>
+            <h3 class="pillar-name">Dr. Rejeesh C R</h3>
+            <span class="pillar-dept">Mechanical Engineering</span>
+            <p class="pillar-desc">
+              He opened the doors when the idea was still just a sketch. With his backing, the department became our garage, and his trust gave a student project the weight of a real engineering program.
+            </p>
+          </div>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-img" style="background-image: url('assets/mentors/sumanlal.jpeg');"></div>
+          <div class="pillar-info">
+            <span class="pillar-role">Professor &amp; Dean (DOST)</span>
+            <h3 class="pillar-name">Dr. Sumanlal M R</h3>
+            <span class="pillar-dept">Mechanical Engineering</span>
+            <p class="pillar-desc">
+              He kept us thinking past the next deadline. His guidance pushed us to treat every weld and every decision as part of something bigger, and to build a machine and a team that would outlast this season.
+            </p>
+          </div>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-img" style="background-image: url('assets/mentors/joseph.jpeg');"></div>
+          <div class="pillar-info">
+            <span class="pillar-role">Our Advisor</span>
+            <h3 class="pillar-name">Mr. Joseph Pappachan</h3>
+            <span class="pillar-dept">Mechanical Engineering</span>
+            <p class="pillar-desc">
+              He was on the shop floor with us. Through late nights, failed parts and restarts, he was the one who turned problems into lessons and made sure we never stopped moving forward.
+            </p>
+          </div>
+        </article>
       </div>
     </section>
 
